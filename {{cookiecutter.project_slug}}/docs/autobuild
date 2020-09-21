@@ -1,0 +1,1 @@
+sphinx-autobuild -B -z ../{{cookiecutter.project_slug}} ./source ./build -i *~

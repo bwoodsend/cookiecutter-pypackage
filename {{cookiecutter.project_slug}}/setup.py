@@ -3,6 +3,7 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
+import runpy
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -56,6 +57,6 @@ setup(
     name='{{ cookiecutter.project_slug }}',
     packages=find_packages(include=['{{ cookiecutter.project_slug }}', '{{ cookiecutter.project_slug }}.*']),
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
-    version='{{ cookiecutter.version }}',
+    version=runpy.run_path("{{ cookiecutter.project_slug }}/_version.py")["__version__"],
     zip_safe=False,
 )

@@ -1,6 +1,6 @@
-#!/usr/bin/env python
-
-"""The setup script."""
+# -*- coding: utf-8 -*-
+"""
+"""
 
 from setuptools import setup, find_packages
 import runpy

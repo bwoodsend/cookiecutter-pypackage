@@ -48,7 +48,8 @@ setup(
     ],
     extras_require={
         "test": [
-            'pytest>=3',
+            'pytest>=3', 'pytest-order', 'coverage', 'pytest-cov',
+            'coverage-conditional-plugin'
         ]
     },
 {%- if cookiecutter.open_source_license in license_classifiers %}

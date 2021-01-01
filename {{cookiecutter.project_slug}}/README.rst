@@ -3,18 +3,6 @@
 {{ cookiecutter.project_name }}
 {% for _ in cookiecutter.project_name %}={% endfor %}
 
-{% if is_open_source %}
-.. image:: https://img.shields.io/pypi/v/{{ cookiecutter.project_slug }}.svg
-        :target: https://pypi.python.org/pypi/{{ cookiecutter.project_slug }}
-
-{%- endif %}
-
-{% if cookiecutter.add_pyup_badge == 'y' %}
-.. image:: https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/shield.svg
-     :target: https://pyup.io/repos/github/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/
-     :alt: Updates
-{% endif %}
-
 ..
     This site auto-generates the little python version badges from url.
     The required  format is:
@@ -39,12 +27,6 @@
 {% endif %}
 
 
-Features
---------
-
-* TODO
-
-
 Installation
 ------------
 
@@ -53,9 +35,17 @@ the following in your terminal:
 
 .. code-block:: console
 
-    $ pip install {{ cookiecutter.project_slug }}
+    pip install {{ cookiecutter.project_slug }}
 
 .. _PyPI: https://pypi.org/project/{{ cookiecutter.project_slug }}/
+
+
+Quickstart
+----------
+
+Check out our `quickstart page on readthedocs
+<https://{{ cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io/en/latest/quickstart.html>`_
+to get started.
 
 
 Credits

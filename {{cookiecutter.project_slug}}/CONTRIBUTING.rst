@@ -4,128 +4,100 @@
 Contributing
 ============
 
-Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.
+Contributions are welcome, and they are greatly appreciated!
 
 You can contribute in many ways:
 
-Types of Contributions
-----------------------
 
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues.
+Report bugs by creating an `issue on Github
+<https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues>`_.
 
-If you are reporting a bug, please include:
 
-* Your operating system name and version.
-* Any details about your local setup that might be helpful in troubleshooting.
-* Detailed steps to reproduce the bug.
+Getting Help
+~~~~~~~~~~~~
+
+You can get help directly from the package authors by asking questions on
+`Github discussions <https://github.com/{{
+cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/discussions/>`_.
+
 
 Fix Bugs
 ~~~~~~~~
 
-Look through the GitHub issues for bugs. Anything tagged with "bug" and "help
-wanted" is open to whoever wants to implement it.
+Look through the GitHub issues for bugs. Anything tagged with *bug* and *help
+wanted* is open to whoever wants to implement it. If it hasn't been reported
+already, please `report a bug <Report Bugs>`_ before trying to fix it. Indicate
+on the bug report that you have a fix or at least an idea to fix it with.
 
-Implement Features
-~~~~~~~~~~~~~~~~~~
 
-Look through the GitHub issues for features. Anything tagged with "enhancement"
-and "help wanted" is open to whoever wants to implement it.
+Adding or Requesting New Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Write Documentation
-~~~~~~~~~~~~~~~~~~~
+New features, whether you want to add it yourself or simply request it should be
+proposed as `discussions on Github <https://github.com/{{
+cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/discussions/>`_
+first. However, be warned that I am very picky about what should and should not
+be added to ``{{ cookiecutter.project_slug }}``. Features will be rejected if
+they don't satisfy at least most of these criteria.
 
-{{ cookiecutter.project_name }} could always use more documentation, whether as part of the
-official {{ cookiecutter.project_name }} docs, in docstrings, or even on the web in blog posts,
-articles, and such.
+#. You are both willing and able to do at least some of the work.
 
-Submit Feedback
-~~~~~~~~~~~~~~~
+#. I'm a big believer of the Linux *small packages that do one thing well*
+   philosophy. This feature should not introduce new overhead or dependencies,
+   including optional dependencies (which are even worse in my mind). Such a
+   feature should instead be its own package which depends on both ```{{
+   cookiecutter.project_slug }}`` and these other dependencies.
 
-The best way to send feedback is to file an issue at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues.
+#. You can justify the general need for this feature - not just that you
+   specifically want it for your given use case.
 
-If you are proposing a feature:
-
-* Explain in detail how it would work.
-* Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
-  are welcome :)
-
-Get Started!
-------------
-
-Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for local development.
-
-1. Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
-2. Clone your fork locally::
-
-    $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
-
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
-
-    $ mkvirtualenv {{ cookiecutter.project_slug }}
-    $ cd {{ cookiecutter.project_slug }}/
-    $ python setup.py develop
-
-4. Create a branch for local development::
-
-    $ git checkout -b name-of-your-bugfix-or-feature
-
-   Now you can make your changes locally.
-
-5. When you're done making changes, check that your changes pass flake8 and the
-   tests, including testing other Python versions with tox::
-
-    $ flake8 {{ cookiecutter.project_slug }} tests
-    $ python setup.py test or pytest
-    $ tox
-
-   To get flake8 and tox, just pip install them into your virtualenv.
-
-6. Commit your changes and push your branch to GitHub::
-
-    $ git add .
-    $ git commit -m "Your detailed description of your changes."
-    $ git push origin name-of-your-bugfix-or-feature
-
-7. Submit a pull request through the GitHub website.
 
 Pull Request Guidelines
 -----------------------
 
 Before you submit a pull request, check that it meets these guidelines:
 
-1. The pull request should include tests.
-2. If the pull request adds functionality, the docs should be updated. Put
-   your new functionality into a function with a docstring, and add the
-   feature to the list in README.rst.
-3. The pull request should work for Python 3.5, 3.6, 3.7 and 3.8, and for PyPy. Check
-   https://travis-ci.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/pull_requests
-   and make sure that the tests pass for all supported Python versions.
+#. There are no nonfunctional or stylistic changes to existing code. I don't
+   give a wet-slap about PEP8 - I care very much about the signal to noise ratio
+   of ``git log -S "new code"``, ``git log -- filename.py`` and ``git diff``.
 
-Tips
-----
+#. The pull request should work for all supported Python versions and
+   PyInstaller. Run::
 
-To run a subset of tests::
+        pip install -e .[test]
 
-{% if cookiecutter.use_pytest == 'y' -%}
-    $ pytest tests.test_{{ cookiecutter.project_slug }}
-{% else %}
-    $ python -m unittest tests.test_{{ cookiecutter.project_slug }}
-{%- endif %}
+   to install test requirements. And::
 
-Deploying
----------
+        pytest
 
-A reminder for the maintainers on how to deploy.
-Make sure all your changes are committed (including an entry in HISTORY.rst).
-Then run::
+   to test everything. See also the readme in the ``tests`` folder.
 
-$ bump2version patch # possible: major / minor / patch
-$ git push
-$ git push --tags
+#. Running the full test suite should provide 100% coverage.
 
-Travis will then deploy to PyPI if tests pass.
+#. If the pull request adds functionality, the docs should be updated. Put
+   your new functionality into a function with a Google or NumPy style
+   docstring, add it to the docs stubs (see ``docs/source/stubs``) if it isn't
+   already collected.
+
+#. Python source code should be formatted by `yapf
+   <https://github.com/google/yapf>`_. Install with::
+
+        pip install -r requirements-dev.txt
+
+   and run from the root of this repo with::
+
+        yapf -rip .
+
+   Aim to do this with every commit. I don't want to see any *run yapf* commits.
+   I have no interest in PEP8 compliance so there is no need to appease flake8.
+
+#. I'm fussy about git history. Follow `these guidelines
+   <https://chris.beams.io/posts/git-commit/>`_ for writing good commit messages
+   but include a ``.`` at the end of the 1st line. Use ``git rebase -i`` to
+   clear up any mistakes you make. Alternatively, if your understanding of git
+   is weak, then limit your pull request to one change only (so that the history
+   can be squashed automatically) and make as much mess as you like.
+

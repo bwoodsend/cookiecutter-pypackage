@@ -47,7 +47,11 @@ setup(
     install_requires=[
         {%- if cookiecutter.command_line_interface|lower == 'click' %}'Click>=7.0',{%- endif %}
     ],
-    extras_require={"test":[{%- if cookiecutter.use_pytest == 'y' %}'pytest>=3',{%- endif %}]},
+    extras_require={
+        "test": [
+            'pytest>=3',
+        ]
+    },
 {%- if cookiecutter.open_source_license in license_classifiers %}
     license="{{ cookiecutter.open_source_license }}",
 {%- endif %}

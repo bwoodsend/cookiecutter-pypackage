@@ -1,14 +1,12 @@
-Welcome to {{ cookiecutter.project_name }}'s documentation!
-======================================
+.. include:: ../../README.rst
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+    :maxdepth: 2
+    :caption: Contents:
 
-   quickstart
-   contributing
-   {% if cookiecutter.create_author_file == 'y' -%}authors
-   {% endif -%}history
+    getting-started
+    {% if cookiecutter.create_author_file == 'y' -%}authors
+    {% endif -%}
 
 Indices and tables
 ==================

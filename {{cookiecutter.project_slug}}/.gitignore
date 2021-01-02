@@ -109,3 +109,6 @@ ENV/
 .vscode/
 .idea/*
 !.idea/fileTemplates
+
+# Junk from Apple
+.DS_Store

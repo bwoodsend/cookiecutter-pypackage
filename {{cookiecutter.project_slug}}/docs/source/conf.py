@@ -37,6 +37,7 @@ extensions = [
     'sphinx_copybutton',
     'sphinx.ext.napoleon',
     'sphinx.ext.autosectionlabel',
+    'sphinx.ext.intersphinx',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -85,6 +86,12 @@ todo_include_todos = False
 
 with open("rst_prolog.txt") as f:
     rst_prolog = f.read()
+
+# Add intersphinx mappings for :class:`xxx` cross references to non-{{ cookiecutter.project_slug }}
+# docs.
+intersphinx_mapping = {
+    'python': ('http://docs.python.org/3', None),
+}
 
 # -- Options for HTML output -------------------------------------------
 

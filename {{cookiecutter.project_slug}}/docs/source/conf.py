@@ -83,6 +83,8 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
+with open("rst_prolog.txt") as f:
+    rst_prolog = f.read()
 
 # -- Options for HTML output -------------------------------------------
 
